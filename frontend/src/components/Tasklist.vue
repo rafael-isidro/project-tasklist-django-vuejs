@@ -9,7 +9,7 @@
                 </form>
                 <form v-else @submit.prevent="update" action="" class="d-flex flex-row" method="POST">
                     <input class="form-control" type="text" name="title" placeholder="Tarefa de hoje"
-                        v-model="newItem.title" required>
+                        v-model="editing.item.title" required>
                     <button class="btn ms-2 btn-primary">Editar</button>
                 </form>
             </div>
@@ -27,10 +27,12 @@
                             <td>{{ item.title }}</td>
                             <td>
                                 <div class="form-check" v-if="item.completed">
-                                    <input class="form-check-input" type="checkbox" checked :id="item.id">
+                                    <input class="form-check-input" type="checkbox" checked :id="item.id"
+                                        @change="changeStatus(item)">
                                 </div>
                                 <div class="form-check" v-else>
-                                    <input class="form-check-input" type="checkbox" :id="item.id">
+                                    <input class="form-check-input" type="checkbox" :id="item.id"
+                                        @change="changeStatus(item)">
                                 </div>
                             </td>
                             <td>
@@ -41,10 +43,11 @@
                                     <path fill-rule="evenodd"
                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                                <svg @click="removeItem(item.id)" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d=" M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1
+                                    .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0
+                                    1-.708-.708L7.293 8z" />
                                 </svg>
                             </td>
                         </tr>
@@ -102,8 +105,34 @@ export default {
             this.editing.status = true;
             this.editing.item = item;
         },
+        changeStatus(item) {
+            this.editing.item = item;
+            this.editing.item.completed = !item.completed;
+            this.update();
+        },
         update() {
-
+            axios.defaults.headers['Authorization'] = `Token ${this.$store.state.token}`;
+            const url = "/retrieve-update-destroy-tasklist/" + this.editing.item.id + "/";
+            axios.put(url, this.editing.item)
+                .then(response => {
+                    this.editing.status = false;
+                    this.editing.item = {}
+                    this.fetchTasklist();
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        removeItem(id) {
+            axios.defaults.headers['Authorization'] = `Token ${this.$store.state.token}`;
+            const url = "/retrieve-update-destroy-tasklist/" + id + "/";
+            axios.delete(url)
+                .then(response => {
+                    this.fetchTasklist();
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     },
     mounted() {
