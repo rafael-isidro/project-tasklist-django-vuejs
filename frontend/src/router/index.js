@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SignupView from "../views/SignupView.vue";
 import TasklistView from "../views/TasklistView.vue";
+import AboutView from "@/views/AboutView.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/tasklist",
     name: "tasklist",
     component: TasklistView,
+  },  
+  {
+    path: "/about",
+    name: "about",
+    component: AboutView,
   },
 ];
 

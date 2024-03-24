@@ -26,6 +26,11 @@
                             Não possui uma conta?
                             <router-link class="text-decoration-none" to="/signup">Registrar-se</router-link>
                         </p>
+                        <p class="text-white">
+                            <router-link class="text-decoration-none text-white" to="/about">
+                                <strong>Saiba mais</strong>
+                            </router-link>
+                        </p>
                     </div>
                 </form>
             </div>
@@ -91,6 +96,14 @@ export default {
 .login-container {
     background-color: #001a41;
     border-radius: 2rem;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 720px) {
+    .login-container {
+        width: 40vw;
+    }
 }
 
 .text-light-red {
@@ -104,11 +117,11 @@ export default {
     border-radius: 20px;
     padding: 10px 20px;
     border: none;
-    transition: color 0.3s ease;
+    transition: background-color color 0.3s ease;
 }
 
 .login-button:hover {
-    color: #375581;
-    background-color: #8CA3C8;
+    color: #ffffff;
+    background-color: #6882aa;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row py-4 d-flex flex-column align-items-center justify-content-center middle-content">
-            <div class="col-md-6 p-4 login-container">
+            <div class="col-md-6 p-4 signup-container">
                 <h3 class="text-white text-center mb-4">Registre-se</h3>
                 <hr class="bg-white">
                 <form @submit.prevent="submitForm">
@@ -21,7 +21,7 @@
                         <small v-if="errors.password2" class="text-light-red">{{ errors.password2 }}</small>
                     </div>
                     <div class="form-group my-2 d-grid gap-2">
-                        <button type="submit" class="btn btn-primary login-button">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary signup-button">Cadastrar</button>
                     </div>
                     <div class="form-group my-2 d-grid gap-2">
                         <p class="text-white">
@@ -97,27 +97,36 @@ export default {
     background-color: #7a889b;
 }
 
-.login-container {
+.signup-container {
     background-color: #001a41;
     border-radius: 2rem;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+@media (min-width: 720px) {
+    .signup-container {
+        width: 40vw;
+    }
 }
 
 .text-light-red {
     color: #ff7777;
 }
 
-.login-button {
+.signup-button {
     background-color: #8CA3C8;
     color: #001a42;
     font-weight: 600;
     border-radius: 20px;
     padding: 10px 20px;
     border: none;
-    transition: color 0.3s ease;
+    transition: background-color color 0.3s ease;
 }
 
-.login-button:hover {
-    color: #375581;
-    background-color: #8CA3C8;
+.signup-button:hover {
+    color: #ffffff;
+    background-color: #6882aa;
 }
 </style>
