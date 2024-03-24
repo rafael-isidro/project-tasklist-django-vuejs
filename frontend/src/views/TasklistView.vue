@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>Tasklist page</h1>
+  <div class="tasklist">
+    <Tasklist />
   </div>
 </template>
+
+<script>
+import Tasklist from '@/components/Tasklist.vue';
+
+export default {
+  name: "TasklistView",
+  components: {
+    Tasklist
+  }
+}
+</script>
