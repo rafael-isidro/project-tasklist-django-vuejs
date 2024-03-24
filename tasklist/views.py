@@ -15,13 +15,15 @@ class Login(ObtainAuthToken):
         token, created = Token.objects.get_or_create(user=user)
         return Response({'token': token.key, "user_id": user.id})
 
+# GetAll and Create Tasklist
 class ListCreateTasklist(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated,]
     serializer_class = TasklistSerializer
 
     def get_queryset(self):
         return Tasklist.objects.filter(user=self.request.user)
-    
+
+# Get, Update and Delete Tasklist
 class RetrieveUpdateDestroyTasklist(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated, ]
     queryset = Tasklist.objects.all()
