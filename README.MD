@@ -1,4 +1,4 @@
-# Documentação do Projeto - Tasklist
+# Documentação do Projeto - Tasklist (Django + Vuejs) - Urbe
 
 ## Backend
 
@@ -227,7 +227,7 @@ Componente: Tasklist
 
 ## Conclusão
 
-Este documento fornece uma visão geral dos processos de decisão e desenvolvimento do projeto Tasklist, incluindo detalhes sobre o backend, frontend e instruções para execução do projeto em suas máquinas. Se houver dúvidas ou sugestões de melhoria, sinta-se à vontade para entrar em contato com a equipe de desenvolvimento.
+Este documento fornece uma visão geral dos processos de decisão e desenvolvimento do projeto Tasklist, incluindo detalhes sobre o backend, frontend e instruções para execução do projeto em suas máquinas. Se houver dúvidas ou sugestões de melhoria, sinta-se à vontade para entrar em contato com o autor.
 
 ## Autor
 
