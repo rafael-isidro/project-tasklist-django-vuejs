@@ -25,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item in tasks" v-bind:key="item.id">
+                            <tr v-for="item in tasks" v-bind:key="item.id" class="text-center">
                                 <td>{{ item.title }}</td>
                                 <td>
                                     <div class="form-check" v-if="item.completed">

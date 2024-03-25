@@ -6,11 +6,13 @@
                 <hr class="bg-white">
                 <div class="text-white">
                     <p>Esta é uma aplicação simples para gerenciamento de tarefas (tasks).</p>
+                    <hr>
                     <p>Recursos disponíveis:</p>
                     <ul class="list-unstyled">
                         <li>---- Realizar login ----</li>
                         <li>---- Cadastrar tarefas ----</li>
                         <li>---- Gerenciar tarefas ----</li>
+                        <hr>
                     </ul>
                 </div>
                 <div class="row">
