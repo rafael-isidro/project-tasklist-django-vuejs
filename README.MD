@@ -1,4 +1,4 @@
-# Documentação do Projeto - Tasklist (Django + Vuejs) - Urbe
+# Documentação do Projeto - Tasklist (Django + Vuejs)
 
 ## Backend
 
